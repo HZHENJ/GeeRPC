@@ -68,7 +68,7 @@ func newClientCodec(cc codec.Codec, opt *Option) *Client {
 		opt:     opt,
 		pending: make(map[uint64]*Call),
 	}
-	go client.recive()
+	go client.receive()
 	return client
 }
 
@@ -136,6 +136,9 @@ func (client *Client) registerCall(call *Call) (uint64, error) {
 	call.Seq = client.seq
 	client.pending[call.Seq] = call
 	client.seq++
+	if client.seq == 0 {
+		client.seq = 1
+	}
 	return call.Seq, nil
 }
 
@@ -162,7 +165,7 @@ func (client *Client) terminateCall(err error) {
 	}
 }
 
-func (client *Client) recive() {
+func (client *Client) receive() {
 	// call 不存在，可能是请求不完整，或者其他原因被取消，但是服务端仍就处理了
 	// call 存在 服务端处理出错，即h.Error不为空
 	// call 存在 服务端处理正常需要从body中读取Reply的值

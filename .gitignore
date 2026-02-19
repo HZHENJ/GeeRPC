@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# JetBrains (GoLand, IntelliJ IDEA)
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Windows 可执行文件
+*.exe
+*.exe~
+
+# 动态链接库
+*.dll
+*.so
+*.dylib
+
+# 测试生成的临时二进制文件
+*.test
+
+# 性能分析与覆盖率报告
+*.out
+*.prof
+
+# Vendor 目录 (通常不需要提交，除非你明确想管理依赖包源码)
+vendor/
+
+# Go Workspace 本地文件 (Go 1.18+)
+go.work
+go.work.sum
