@@ -184,7 +184,7 @@ func (client *Client) receive() {
 			// and call was already removed
 			err = client.cc.ReadBody(nil)
 		case h.Error != "":
-			call.Error = fmt.Errorf(h.Error)
+			call.Error = fmt.Errorf("%s", h.Error)
 			err = client.cc.ReadBody(nil)
 			call.done()
 		default:
