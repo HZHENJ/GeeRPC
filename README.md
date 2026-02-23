@@ -391,11 +391,11 @@ func main() {
 }
 ```
 
-# 高性能客户端
+## 高性能客户端
 
 * 实现支持异步和并发的高性能客户端
 
-## Call的设计
+### Call的设计
 
 `func (t *T) MethodName(argType T1, replyType *T2) error`
 
